@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -82,7 +87,7 @@ DATABASES = {
         'NAME': os.environ.get('POSTGRES_DB', 'django_db'),
         'USER': os.environ.get('POSTGRES_USER', 'django_user'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'django_pass'),
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': 5432,
     }
 }
